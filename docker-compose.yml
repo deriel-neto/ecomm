@@ -1,0 +1,5 @@
+version: "3.9"
+services:
+    product:
+        image: derielneto/app-node:1.1
+        container_name: product
