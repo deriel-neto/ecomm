@@ -1,4 +1,4 @@
-let accounts = [];
+export let accounts = [];
 
 export function createUserUseCase(nome, email, senha){
     let user = {
