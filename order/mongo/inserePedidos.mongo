@@ -1,0 +1,47 @@
+db.pedidos.insertMany([
+    {
+        data: ISODate(),
+        idCliente: "111.111.111-11",
+        enderecoDeEntrega:{
+            logradouro: "rua elizabete ribas",
+            numero: "342",
+            complemento: "sobrado",
+            bairro: "centro",
+            cep: "22222-222",
+            cidade: "paracambi",
+            uf: "RJ",
+        },
+        itensDoPedido: [
+            {
+                produto: "Galaxy S22 Ultra",
+                quanidade: 1,
+                desconto: NumberDecimal("854.9"),
+                preco: NumberDecimal("8549.1")
+            }
+            
+        ]
+    },
+    {
+        data: ISODate(),
+        idCliente: "132.555.666.99",
+        enderecoDeEntrega:{
+            logradouro: "rua mané garrincha",
+            numero: "07",
+            complemento: "S/N",
+            bairro: "centro",
+            cep: "23333-333",
+            cidade: "rio de janeiro",
+            uf: "RJ"
+        },
+        itensDoPedido: [
+            {
+                produto: "Galaxy Tab S8",
+                quanidade: 1,
+                desconto: NumberDecimal("593.9"),
+                preco: NumberDecimal("5939.1")
+            }
+            
+        ]
+    }
+
+])
