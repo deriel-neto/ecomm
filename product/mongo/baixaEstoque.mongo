@@ -1,0 +1,12 @@
+db.products.findOneAndUpdate({
+        
+    PRODUTO: "Galaxy Tab S8",
+    "QUANTIDADE EM ESTOQUE": {
+        $gt: 0
+    }
+},
+{
+    $inc: {
+        "QUANTIDADE EM ESTOQUE": -2
+    }
+})
