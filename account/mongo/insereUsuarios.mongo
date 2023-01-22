@@ -1,0 +1,56 @@
+db.usuarios.insertMany([
+    {
+        nome: "Marcos Aurélio",
+        email: "marcos.a@exemplo.com",
+        senha: "c4c62424df7c11291eab30691047315d",
+        data: ISODate(),
+        cpf: "111.111.111-11",
+        telefone: "21 99999-9999",
+        enderecos: [
+            {
+                logradouro: "rua elizabete ribas",
+                numero: "342",
+                complemento: "sobrado",
+                cep: "22222-222",
+                cidade: "paracambi",
+                uf: "RJ"
+            }
+        ]
+    },
+        {
+        nome: "Pablo Justino",
+        email: "pablo.j@exemplo.com",
+        senha: "08d73df56eabed0bb5dec9346fd8570b",
+        data: ISODate(),
+        cpf: "222.222.222-22",
+        telefone: "21 98888-8888",
+        enderecos: [
+            {
+                logradouro: "rua afonço gariba",
+                numero: "12",
+                complemento: "apt 1200",
+                cep: "24444-444",
+                cidade: "Nova Iguaçú",
+                uf: "RJ"
+            }
+        ]
+    },
+        {
+        nome: "Rubens Santo",
+        email: "rubens.s@exemplo.com",
+        senha: "88285eed899d36060219f89f4132895b",
+        data: ISODate(),
+        cpf: "132.555.666.99",
+        telefone: "21 97867-7000",
+        enderecos: [
+            {
+                logradouro: "rua mané garrincha",
+                numero: "07",
+                complemento: "S/N",
+                cep: "23333-333",
+                cidade: "rio de janeiro",
+                uf: "RJ"
+            }
+        ]
+    }
+])
