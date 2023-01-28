@@ -32,6 +32,35 @@ paths:
           content:
             application/json:
               example: "A categoria não existe"
+  /api/categories/{id}:
+    get:
+      summary: Recupera as categorias
+      parameters: 
+      -  name: id
+         in: path
+         schema:
+           type: integer
+         required: true
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+             schema:
+                 type: object
+                 properties:
+                   id:
+                    type: string
+                   nome:
+                    type: string
+                   status:
+                    type: string
+                    enum: [ATIVA, INATIVA]
+        404:
+          description: a categoria não foi encontrada ou não existe
+          content:
+            application/json:
+              example: "A categoria não existe"
   /api/admin/categories:
     post:
       summary: Criando uma categoria 
