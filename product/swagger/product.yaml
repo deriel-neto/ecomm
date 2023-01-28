@@ -3,6 +3,9 @@ info:
   title: API de produtos
   description: API monitorar e coordenar loja ecomm.
   version: 0.0.1
+servers: 
+-  url: https://mockapi.io
+   description: api de teste 
 paths:
   /api/categories:
     get:
@@ -29,8 +32,28 @@ paths:
           content:
             application/json:
               example: "A categoria não existe"
-        500:
-          description: problema de servidor
+  /api/admin/categories:
+    post:
+      summary: Criando uma categoria 
+      requestBody:
+        content:
+          application/json:
+           schema:
+             type: object
+             properties:
+               nome:
+                type: string
+      responses:
+        201:
+          description: categoria criada com sucesso
           content:
             application/json:
-              example: "erro no servidor"
+             schema:
+               type: object
+               properties:
+                 id:
+                  type: string
+                 nome:
+                  type: string
+                 status:
+                  type: string
