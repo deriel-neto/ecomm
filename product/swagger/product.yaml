@@ -21,7 +21,7 @@ paths:
                  type: object
                  properties:
                    id:
-                    type: string
+                    type: integer
                    nome:
                     type: string
                    status:
@@ -34,7 +34,7 @@ paths:
               example: "A categoria não existe"
   /api/categories/{id}:
     get:
-      summary: Recupera as categorias
+      summary: Recupera a categoria
       parameters: 
       - name: id
         in: path
@@ -50,7 +50,7 @@ paths:
                  type: object
                  properties:
                    id:
-                    type: string
+                    type: integer
                    nome:
                     type: string
                    status:
@@ -61,7 +61,7 @@ paths:
           content:
             application/json:
               example: "A categoria não existe"
- 
+  /api/admin/categories:
     post:
       summary: Criando uma categoria 
       requestBody:
@@ -81,7 +81,7 @@ paths:
                type: object
                properties:
                  id:
-                  type: string
+                  type: integer
                  nome:
                   type: string
                  status:
@@ -102,7 +102,7 @@ paths:
              type: object
              properties:
                    id:
-                    type: string
+                    type: integer
                    nome:
                     type: string
                    status:
@@ -157,3 +157,166 @@ paths:
                    status:
                     type: string
                     enum: [ATIVA, INATIVA]
+  /api/products:
+    get:
+      summary: Listando produtos
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+             schema:
+               type: array
+               items:
+                 type: object
+                 properties:
+                  id:
+                    type: integer
+                  nome:
+                    type: string
+                  descricao:
+                    type: string
+                  slog:
+                    type: string
+                  preco:
+                    type: number
+                  estoque:
+                    type: number
+                  idCategoria:
+                    type: integer
+  /api/product/{id}:
+    get:
+      summary: Detalhando produto pelo id
+      parameters: 
+      - name: id
+        in: path
+        schema:
+          type: integer
+        required: true
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+             schema:
+                 type: object
+                 properties:
+                  id:
+                    type: integer
+                  nome:
+                    type: string
+                  descricao:
+                    type: string
+                  slog:
+                    type: string
+                  preco:
+                    type: number
+                  estoque:
+                    type: number
+                  idCategoria:
+                    type: integer
+  /api/admin/products:
+    post:
+      summary: Inserindo novo produto
+      requestBody:
+        content:
+          application/json:
+           schema:
+             type: object
+             properties:
+              nome:
+                type: string
+              descricao:
+                type: string
+              slog:
+                type: string
+              preco:
+                type: number
+              estoque:
+                type: number
+              idCategoria:
+                type: integer
+      responses:
+        201:
+          description: categoria criada com sucesso
+          content:
+            application/json:
+             schema:
+               type: object
+               properties:
+                id:
+                  type: integer
+                nome:
+                  type: string
+                descricao:
+                  type: string
+                slog:
+                  type: string
+                preco:
+                  type: number
+                estoque:
+                  type: number
+                idCategoria:
+                  type: integer
+  /api/admin/products/{id}:
+    put:
+      summary: Atualizando produto
+      parameters: 
+      -   name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        content:
+          application/json:
+           schema:
+             type: object
+             properties:
+                id:
+                  type: integer
+                nome:
+                  type: string
+                descricao:
+                  type: string
+                slog:
+                  type: string
+                preco:
+                  type: number
+                estoque:
+                  type: number
+                idCategoria:
+                  type: integer
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+             schema:
+                 type: object
+                 properties:
+                  id:
+                    type: integer
+                  nome:
+                    type: string
+                  descricao:
+                    type: string
+                  slog:
+                    type: string
+                  preco:
+                    type: number
+                  estoque:
+                    type: number
+                  idCategoria:
+                    type: integer
+    delete:
+      summary: Deleta um produto
+      parameters: 
+      -   name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        204:
+          description: deletado com sucesso
