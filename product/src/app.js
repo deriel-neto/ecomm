@@ -1,5 +1,6 @@
 import express from "express";
 import db from "./config/dbconnect.js";
+import categories from "./models/Category.js"
 
 db.on("error", console.log.bind(console, "Erro de conexão"))
 db.once("open", () => {
