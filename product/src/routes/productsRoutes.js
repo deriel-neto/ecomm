@@ -5,6 +5,6 @@ const router = express.Router();
 
 router
     .get("/products", ProductController.listProducts)
-
+    .post("/products", ProductController.registerProduct)
 
     export default router;
