@@ -20,6 +20,17 @@ class ProductController {
             }
         })
     }
+
+    static listProductsById = (req, res) => {
+        const {id} = req.params;
+        products.findById(id, (err, products) => {
+            if(err) {
+                res.status(404).send({ message: `${err.message} - Produto não encontrado`});
+            } else {
+                res.status(200).json(products)
+            }
+        })
+    }
 }
 
 

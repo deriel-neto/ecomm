@@ -5,6 +5,7 @@ const router = express.Router();
 
 router
     .get("/products", ProductController.listProducts)
+    .get("/products/:id", ProductController.listProductsById)
     .post("/products", ProductController.registerProduct)
 
     export default router;
