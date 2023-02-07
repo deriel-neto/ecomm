@@ -20,6 +20,17 @@ class CategoryController {
             }
         })
     }
+
+    static listCategoriesById = (req, res) => {
+        const {id} = req.params;
+        categories.findById(id, (err, categories) => {
+            if(err) {
+                res.status(404).send({ message: `${err.message} - Categoria não encontrada`});
+            } else {
+                res.status(200).json(categories)
+            }
+        })
+    }
 }
 
 export default CategoryController
