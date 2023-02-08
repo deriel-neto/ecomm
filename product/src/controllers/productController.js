@@ -32,11 +32,22 @@ class ProductController {
         })
     }
 
-    static updateProductByid = (req, res) => {
+    static updateProductById = (req, res) => {
         const {id} = req.params;
         products.findByIdAndUpdate(id, {$set: req.body}, (err) => {
             if(!err) {
                 res.status(200).send({message: "Produto atualizado com sucesso"})
+            } else {
+                res.status(500).send({message: err.message})
+            }
+        })
+    }
+
+    static deleteProductById = (req, res) => {
+        const {id} = req.params;
+        products.findByIdAndDelete(id, (err) => {
+            if(!err) {
+                res.status(200).send({message: "produto removido com sucesso"})
             } else {
                 res.status(500).send({message: err.message})
             }

@@ -7,5 +7,6 @@ router
     .get("/categories", CategoryController.listCategories)
     .get("/categories/:id", CategoryController.listCategoriesById)
     .post("/categories", CategoryController.registerCategory)
+    .put("/categories/:id", CategoryController.updateCategoryById)
 
 export default router;
