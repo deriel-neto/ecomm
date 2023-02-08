@@ -42,6 +42,16 @@ class CategoryController {
             }
         })
     }
+    static deleteCategoryById = (req, res) => {
+        const {id} = req.params;
+        categories.findByIdAndDelete(id, (err) => {
+            if(!err) {
+                res.status(200).send({message: "Categorias removido com sucesso"})
+            } else {
+                res.status(500).send({message: err.message})
+            }
+        })
+    }
 }
 
 export default CategoryController
