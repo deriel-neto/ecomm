@@ -43,6 +43,16 @@ class AccountController {
             }
         })
     }
+    static deleteAccountsById = (req, res) => {
+        const {id} = req.params;
+        accounts.findByIdAndDelete(id, (err) => {
+            if(!err) {
+                res.status(200).send({message: "Account removido com sucesso"})
+            } else {
+                res.status(500).send({message: err.message})
+            }
+        })
+    }
 }
 
 export default AccountController;
