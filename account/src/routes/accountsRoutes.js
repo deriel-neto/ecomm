@@ -5,5 +5,6 @@ const router = express.Router();
 
 router
     .get("/accounts", AccountController.listAccounts)
+    .post("/accounts", AccountController.registerAccounts)
 
-export default router
+export default router;

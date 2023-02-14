@@ -11,6 +11,18 @@ class AccountController {
             } 
         })
     }
+    static registerAccounts = (req, res) => {
+        let account = new accounts(req.body);
+
+        account.save((err) =>{
+
+            if(err) {
+                res.status(500).send({ message: `${err.message} - falha ao cadastra account`});
+            } else {
+                res.status(201).send(account.toJSON());
+            }
+        })
+    }
 }
 
 export default AccountController;
