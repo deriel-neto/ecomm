@@ -4,7 +4,11 @@ class CategoryController {
 
     static listCategories = (req, res) => {
         categories.find((err, categories) => {
-            res.status(200).json(categories)
+            if(err){
+                res.status(500).send({message: err.message})
+            } else{
+                res.status(200).json(categories)
+            } 
         })
     }
 
