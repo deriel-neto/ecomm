@@ -1,9 +1,22 @@
 version: "3.9"
 services:
     product:
-        image: derielneto/app-node:1.1
+        build: ./product
         container_name: product
+        ports:
+        - "3001:3001"
     account:
         build: ./account
         container_name: account
-        
+        ports:
+        - "3002:3002"
+    mongodb:
+        container_name: mongo-ecomm
+        image: mongo:5.0
+        environment:
+        - MONGO_INITDB_ROOT_USERNAME=admin
+        - MONGO_INITDB_ROOT_PASSWORD=secret
+        - MONGO_INITDB_DATABASE=ecomm
+        ports:
+        - "27017:27017"
+        command: mongod --bind_ip=0.0.0.0
