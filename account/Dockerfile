@@ -1,6 +1,6 @@
 FROM node:16
 WORKDIR  /app-node/account
-COPY  package*.json .
+COPY  . .
 RUN npm install
-COPY . .
+EXPOSE 3002
 ENTRYPOINT npm start 
