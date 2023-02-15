@@ -10,6 +10,11 @@ services:
         container_name: account
         ports:
         - "3002:3002"
+    finance:
+        build: ./finance
+        container_name: finance
+        ports:
+        - "3003:3003"
     mongodb:
         container_name: mongo-ecomm
         image: mongo:5.0
