@@ -20,3 +20,16 @@ services:
         ports:
         - "27017:27017"
         command: mongod --bind_ip=0.0.0.0
+    mysql:
+        container_name: mysql-ecomm
+        image: mysql
+        restart: always
+        environment:
+        - MYSQL_ROOT_PASSWORD=secret
+        ports:
+        - "3306:3306"
+        volumes:
+        - todo-mysql-data:/var/lib/mysql
+
+volumes:
+  todo-mysql-data:
