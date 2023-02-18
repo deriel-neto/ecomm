@@ -11,6 +11,7 @@ class PaymentController {
             return res.status(500).json(error.message)
         }
     }
+
     static async listPaymentById(req, res){
         const {id} = req.params
         try{
@@ -20,6 +21,36 @@ class PaymentController {
                 }, attributes:{exclude:["cvv"]}
             })
             return res.status(200).json(payment)
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
+    static async updatePaymentCanceled(req, res){
+        const {id} = req.params
+        const status = {status: "cancelado"}
+        try{
+            const payment = await db.payments.update( status,{
+                where:{
+                    id: Number(id)
+                }
+            })
+            return res.status(200).json("Pagamento cancelado")
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
+    static async updatePaymentConfirmed(req, res){
+        const {id} = req.params
+        const status = {status: "comfirmado"}
+        try{
+            const payment = await db.payments.update( status,{
+                where:{
+                    id: Number(id)
+                }
+            })
+            return res.status(200).json("Pagamento confirmado")
         } catch (error) {
             return res.status(500).json(error.message)
         }

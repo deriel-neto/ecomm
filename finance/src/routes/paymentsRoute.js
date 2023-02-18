@@ -6,5 +6,6 @@ const router = express.Router()
 router
     .post("/payments", PaymentController.registerPayment)
     .get("/payments/:id", PaymentController.listPaymentById)
-
+    .put("/payments/:id/cancel", PaymentController.updatePaymentCanceled)
+    .put("/payments/:id/confirm", PaymentController.updatePaymentConfirmed)
 module.exports = router
