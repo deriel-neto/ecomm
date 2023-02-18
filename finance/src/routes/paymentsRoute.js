@@ -5,5 +5,6 @@ const router = express.Router()
 
 router
     .post("/payments", PaymentController.registerPayment)
+    .get("/payments/:id", PaymentController.listPaymentById)
 
 module.exports = router
