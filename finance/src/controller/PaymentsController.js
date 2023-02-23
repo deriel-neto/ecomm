@@ -46,7 +46,7 @@ class PaymentController {
                     id: Number(id)
                 }
             })
-            if(payment.status == "confirmado" || payment.status == "ativo"){
+            if(payment.status == "confirmado" || payment.status == "criado"){
                 await db.payments.update(status, {
                     where:{
                         id: Number(id)
@@ -70,7 +70,7 @@ class PaymentController {
                     id: Number(id)
                 }
             })
-            if(payment.status == "ativo"){
+            if(payment.status == "criado"){
                 await db.payments.update(status, {
                     where:{
                         id: Number(id)
