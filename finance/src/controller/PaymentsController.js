@@ -41,12 +41,21 @@ class PaymentController {
         const {id} = req.params
         const status = {status: "cancelado"}
         try{
-            const payment = await db.payments.update( status,{
+            const payment = await db.payments.findOne({
                 where:{
                     id: Number(id)
                 }
             })
-            return res.status(200).json("Pagamento cancelado")
+            if(payment.status == "confirmado" || payment.status == "ativo"){
+                await db.payments.update(status, {
+                    where:{
+                        id: Number(id)
+                    }
+                })
+                return res.status(200).json("Pagamento cancelado")
+            }else{
+                return res.status(409).json("Pagamento não pode ser cancelado")
+            }
         } catch (error) {
             return res.status(500).json(error.message)
         }
@@ -56,12 +65,21 @@ class PaymentController {
         const {id} = req.params
         const status = {status: "comfirmado"}
         try{
-            const payment = await db.payments.update( status,{
+            const payment = await db.payments.findOne({
                 where:{
                     id: Number(id)
                 }
             })
-            return res.status(200).json("Pagamento confirmado")
+            if(payment.status == "ativo"){
+                await db.payments.update(status, {
+                    where:{
+                        id: Number(id)
+                    }
+                })
+                return res.status(200).json("Pagamento confirmado")
+            }else{
+                return res.status(409).json("Pagamento não pode ser confirmado")
+            }
         } catch (error) {
             return res.status(500).json(error.message)
         }
