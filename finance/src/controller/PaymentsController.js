@@ -12,6 +12,17 @@ class PaymentController {
         }
     }
 
+    static async listPayment(req, res){
+        try{
+            const payment = await db.payments.findAll({
+                attributes:{exclude:["cvv"]}
+            })
+            return res.status(200).json(payment)
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
     static async listPaymentById(req, res){
         const {id} = req.params
         try{

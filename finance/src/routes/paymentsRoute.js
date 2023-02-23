@@ -4,6 +4,7 @@ const PaymentController = require ('../controller/PaymentsController');
 const router = express.Router()
 
 router
+    .get("/payments", PaymentController.listPayment)
     .post("/payments", PaymentController.registerPayment)
     .get("/payments/:id", PaymentController.listPaymentById)
     .put("/payments/:id/cancel", PaymentController.updatePaymentCanceled)
