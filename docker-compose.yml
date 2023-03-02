@@ -10,6 +10,11 @@ services:
         container_name: account
         ports:
         - "3002:3002"
+    finance:
+        build: ./finance
+        container_name: finance
+        ports:
+        - "3003:3003"
     mongodb:
         container_name: mongo-ecomm
         image: mongo:5.0
@@ -20,3 +25,16 @@ services:
         ports:
         - "27017:27017"
         command: mongod --bind_ip=0.0.0.0
+    mysql:
+        container_name: mysql-ecomm
+        image: mysql
+        restart: always
+        environment:
+        - MYSQL_ROOT_PASSWORD=secret
+        ports:
+        - "3306:3306"
+        volumes:
+        - todo-mysql-data:/var/lib/mysql
+
+volumes:
+  todo-mysql-data:
