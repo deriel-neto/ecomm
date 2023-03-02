@@ -1,11 +1,11 @@
-import express from "express";
-import accounts from "./accountsRoutes.js";
+import express from 'express';
+import accounts from './accountsRoutes';
 
 const routes = (app) => {
     app.use(
         express.json(),
-        accounts
-    )
-}
+        accounts,
+    );
+};
 
-export default routes
+export default routes;

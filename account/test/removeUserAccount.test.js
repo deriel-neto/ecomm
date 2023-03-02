@@ -1,10 +1,10 @@
-import { removeUserUseCase } from "../src/use-case/removeUserAccount.js";
-import { createUserUseCase } from "../src/use-case/createUserAccount.js";
-import { searchUserAccountByEmailUseCase } from "../src/use-case/searchUserAccountByEmail.js";
+import * as removeUserUseCase from '../src/removeUserAccount';
+import createUserUseCase from '../src/createUserAccount';
+import * as searchUserAccountByEmailUseCase from '../src/searchUserAccountByEmail';
 
-createUserUseCase("deriel", "deriel@pagonxt.com", "falsa");
-createUserUseCase("neto", "neto@pagonxt.com", "fechado");
+createUserUseCase('deriel', 'deriel@pagonxt.com', 'falsa');
+createUserUseCase('neto', 'neto@pagonxt.com', 'fechado');
 
-console.log(removeUserUseCase("email"));
-console.log(removeUserUseCase("deriel@pagonxt.com"));
-console.log(searchUserAccountByEmailUseCase("deriel@pagonxt.com"));
+console.log(removeUserUseCase('email'));
+console.log(removeUserUseCase('deriel@pagonxt.com'));
+console.log(searchUserAccountByEmailUseCase('deriel@pagonxt.com'));
