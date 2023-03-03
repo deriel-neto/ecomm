@@ -1,13 +1,13 @@
-import express from "express";
-import categories from "./categoriesRoutes.js";
-import products from "./productsRoutes.js";
+import express from 'express';
+import categories from './categoriesRoutes';
+import products from './productsRoutes';
 
 const routes = (app) => {
     app.use(
         express.json(),
         categories,
-        products
-    )
-}
+        products,
+    );
+};
 
-export default routes
+export default routes;

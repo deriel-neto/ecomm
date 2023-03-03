@@ -1,11 +1,11 @@
-const express = require ('express');
-const payments = require ('./paymentsRoute');
+const express = require('express');
+const payments = require('./paymentsRoute');
 
 const routes = (app) => {
     app.use(
         express.json(),
-        payments
-    )
-}
+        payments,
+    );
+};
 
-module.exports = routes
+module.exports = routes;
