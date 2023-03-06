@@ -3,7 +3,6 @@ const {
     afterEach, beforeEach, describe, it,
 } = require('@jest/globals');
 const app = require('../app');
-const { response } = require('../app');
 
 let server;
 beforeEach(() => {
