@@ -6,7 +6,7 @@ import app from '../app';
 
 let server;
 beforeEach(() => {
-    const port = 3007;
+    const port = 3008;
     server = app.listen(port);
 });
 
@@ -14,41 +14,45 @@ afterEach(() => {
     server.close();
 });
 
-describe('listando categorias', () => {
-    it('deve retosnar uma lista com as categorias', async () => {
+describe('listando produtos', () => {
+    it('deve retosnar uma lista com as produtos', async () => {
         await request(app)
-            .get('/categories')
+            .get('/products')
             .expect(200);
     });
 });
 
-let idNewCategory;
-describe('post em category', () => {
-    it('criando uma nova categorias', async () => {
+let idNewProduct;
+describe('post em Product', () => {
+    it('criando um novo produtos', async () => {
         const retorno = await request(app)
-            .post('/categories')
+            .post('/products')
             .send({
-                nome: 'esport',
-                status: 'ativo',
+                produto: 'livro',
+                descricao: 'Samsung Book Core i5-1135G7, 8G, 256GB SSD, Iris Xe, 15.6\'FHD, W11 Cinza',
+                slug: 'notebook',
+                precoUnitario: 350.00,
+                estoque: 1,
+                idCategoria: '63c15f6ac9e28591c1d02858',
             })
             .expect(201);
         // eslint-disable-next-line no-underscore-dangle
-        idNewCategory = retorno.body._id;
+        idNewProduct = retorno.body._id;
     });
 });
 
 describe('listando categoria pelo id', () => {
     it('deve retosnar uma categoria', async () => {
         await request(app)
-            .get(`/categories/${idNewCategory}`)
+            .get(`/products/${idNewProduct}`)
             .expect(200);
     });
 });
 
-describe('post em category', () => {
-    it('criando uma nova categorias', async () => {
+describe('post em Product', () => {
+    it('criando um novo produtos', async () => {
         await request(app)
-            .put(`/categories/${idNewCategory}`)
+            .put(`/products/${idNewProduct}`)
             .send({
                 nome: 'esport',
                 status: 'inativo',
@@ -60,7 +64,7 @@ describe('post em category', () => {
 describe('deletando categoria pelo id', () => {
     it('deve deletar uma categoria', async () => {
         await request(app)
-            .delete(`/categories/${idNewCategory}`)
+            .delete(`/products/${idNewProduct}`)
             .expect(200);
     });
 });
