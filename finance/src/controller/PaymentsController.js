@@ -5,7 +5,7 @@ class PaymentController {
         const newPayment = req.body;
         try {
             const newPaymentcreated = await db.payments.create(newPayment);
-            return res.status(200).location(`/payments/${newPaymentcreated.id}`).json(newPaymentcreated);
+            return res.status(201).location(`/payments/${newPaymentcreated.id}`).json(newPaymentcreated);
         } catch (error) {
             return res.status(500).json(error.message);
         }
