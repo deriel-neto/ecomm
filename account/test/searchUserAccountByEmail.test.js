@@ -1,5 +1,5 @@
-import searchUserAccountByEmailUseCase from '../src/searchUserAccountByEmail';
-import createUserUseCase from '../src/createUserAccount';
+import searchUserAccountByEmailUseCase from '../src/searchUserAccountByEmail.js';
+import createUserUseCase from '../src/createUserAccount.js';
 
 createUserUseCase('deriel', 'deriel@pagonxt.com', 'falsa');
 createUserUseCase('neto', 'neto@pagonxt.com', 'fechado');

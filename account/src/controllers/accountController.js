@@ -1,4 +1,4 @@
-import Accounts from '../models/Account';
+import Accounts from '../models/Account.js';
 
 class AccountController {
     static listAccounts = (req, res) => {
