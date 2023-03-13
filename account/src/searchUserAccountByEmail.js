@@ -1,11 +1,9 @@
-import { accounts } from "./createUserAccount.js"
+import { accounts } from './createUserAccount';
 
-export function searchUserAccountByEmailUseCase(email){
-    let filtro = accounts.filter((account) => account.email.toUpperCase() === email.toUpperCase());
-    if(filtro.length > 0){
-        return filtro
+export default function searchUserAccountByEmailUseCase(email) {
+    const filter = accounts.filter((act) => act.email.toUpperCase() === email.toUpperCase());
+    if (filter.length > 0) {
+        return filter;
     }
-    return `Nenhum usuaria encontrado com esse email: ${email}`
-    
-    
+    return `Nenhum usuaria encontrado com esse email: ${email}`;
 }

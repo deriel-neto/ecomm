@@ -1,8 +1,8 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose';
 
-mongoose.set("strictQuery", true);
-mongoose.connect("mongodb://admin:secret@mongodb:27017/ecomm?authSource=admin");
+mongoose.set('strictQuery', true);
+mongoose.connect('mongodb://admin:secret@127.0.0.1:27017/ecomm?authSource=admin');
 
-let db = mongoose.connection;
+const db = mongoose.connection;
 
 export default db;
