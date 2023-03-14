@@ -1,4 +1,4 @@
-import Categories from '../models/Category';
+import Categories from '../models/Category.js';
 
 class CategoryController {
     static listCategories = (req, res) => {

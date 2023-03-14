@@ -1,5 +1,5 @@
 const express = require('express');
-const payments = require('./paymentsRoute');
+const payments = require('./paymentsRoute.js');
 
 const routes = (app) => {
     app.use(

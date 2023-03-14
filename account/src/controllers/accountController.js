@@ -1,4 +1,5 @@
 import Accounts from '../models/Account.js';
+import passwordEncrypted from '../hashSalt/hashSalt.js'
 
 class AccountController {
     static listAccounts = (req, res) => {
@@ -12,7 +13,8 @@ class AccountController {
 
     static registerAccounts = (req, res) => {
         const account = new Accounts(req.body);
-
+        const hashSalt = passwordEncrypted(account.senha);
+        account.senha = hashSalt;
         account.save((err) => {
             if (err) {
                 res.status(500).send({ message: `${err.message} - falha ao cadastra account` });

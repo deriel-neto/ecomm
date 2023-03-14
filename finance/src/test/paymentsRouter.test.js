@@ -2,7 +2,7 @@ const request = require('supertest');
 const {
     afterEach, beforeEach, describe, it,
 } = require('@jest/globals');
-const app = require('../app');
+const app = require('../app.js');
 
 let server;
 beforeEach(() => {
