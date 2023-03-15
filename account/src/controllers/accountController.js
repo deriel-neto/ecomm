@@ -24,6 +24,10 @@ class AccountController {
         });
     };
 
+    static loginUser = (req, res) => {
+        res.status(204).send();
+    };
+
     static listAccountsById = (req, res) => {
         const { id } = req.params;
         Accounts.findById(id, (err, account) => {
