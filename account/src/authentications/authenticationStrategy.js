@@ -2,6 +2,8 @@ import passport from 'passport';
 import LocalStrategy from 'passport-local';
 import Accounts from '../models/Account.js';
 import bcryptjs from 'bcryptjs';
+import BearerStrategy from 'passport-http-bearer';
+import jwt from 'jsonwebtoken';
 
 function checkUser(user) {
     if (!user) {
@@ -32,4 +34,18 @@ passport.use(
             done(error);
         }
     })
+);
+
+passport.use(
+    new BearerStrategy(
+        async (token, done) => {
+            try{
+                const payload = jwt.verify(token, process.env.CHAVE_JWT);
+                const user = await Accounts.findById(payload.id);
+                done(null, user);
+            } catch(error) {
+                done(error);
+            }
+        }
+    )
 )
