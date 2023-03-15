@@ -1,5 +1,6 @@
 import Accounts from '../models/Account.js';
-import passwordEncrypted from '../hashSalt/hashSalt.js'
+import passwordEncrypted from '../hashSalt/hashSalt.js';
+import createdToken from '../authentications/createdToken.js';
 
 class AccountController {
     static listAccounts = (req, res) => {
@@ -25,6 +26,8 @@ class AccountController {
     };
 
     static loginUser = (req, res) => {
+        const token = createdToken(req.user);
+        res.set('Authorization', token);
         res.status(204).send();
     };
 
