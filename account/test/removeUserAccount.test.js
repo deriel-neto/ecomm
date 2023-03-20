@@ -1,6 +1,6 @@
-import * as removeUserUseCase from '../src/removeUserAccount';
-import createUserUseCase from '../src/createUserAccount';
-import * as searchUserAccountByEmailUseCase from '../src/searchUserAccountByEmail';
+import * as removeUserUseCase from '../src/removeUserAccount.js';
+import createUserUseCase from '../src/createUserAccount.js';
+import * as searchUserAccountByEmailUseCase from '../src/searchUserAccountByEmail.js';
 
 createUserUseCase('deriel', 'deriel@pagonxt.com', 'falsa');
 createUserUseCase('neto', 'neto@pagonxt.com', 'fechado');

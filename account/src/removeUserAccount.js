@@ -1,4 +1,4 @@
-import { accounts } from './createUserAccount';
+import { accounts } from './createUserAccount.js';
 
 export default function rveUserUseCase(email) {
     const user = accounts.filter((account) => account.email.toUpperCase() === email.toUpperCase());

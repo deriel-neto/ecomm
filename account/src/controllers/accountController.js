@@ -1,4 +1,6 @@
-import Accounts from '../models/Account';
+import Accounts from '../models/Account.js';
+import passwordEncrypted from '../hashSalt/hashSalt.js';
+import createdToken from '../authentications/createdToken.js';
 
 class AccountController {
     static listAccounts = (req, res) => {
@@ -12,7 +14,8 @@ class AccountController {
 
     static registerAccounts = (req, res) => {
         const account = new Accounts(req.body);
-
+        const hashSalt = passwordEncrypted(account.senha);
+        account.senha = hashSalt;
         account.save((err) => {
             if (err) {
                 res.status(500).send({ message: `${err.message} - falha ao cadastra account` });
@@ -20,6 +23,12 @@ class AccountController {
                 res.status(201).send(account.toJSON());
             }
         });
+    };
+
+    static loginUser = (req, res) => {
+        const token = createdToken(req.user);
+        res.set('Authorization', token);
+        res.status(204).send();
     };
 
     static listAccountsById = (req, res) => {

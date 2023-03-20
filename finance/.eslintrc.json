@@ -12,6 +12,7 @@
     },
     "rules": {
         "linebreak-style": ["error", "windows"],
+        "import/extensions": ["error", "ignorePackages"],
         "indent": ["error", 4],
         "no-console": 0
     }

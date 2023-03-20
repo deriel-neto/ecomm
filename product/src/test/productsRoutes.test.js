@@ -2,7 +2,7 @@ import request from 'supertest';
 import {
     afterEach, beforeEach, describe, it,
 } from '@jest/globals';
-import app from '../app';
+import app from '../app.js';
 
 let server;
 beforeEach(() => {

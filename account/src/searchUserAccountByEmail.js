@@ -1,4 +1,4 @@
-import { accounts } from './createUserAccount';
+import { accounts } from './createUserAccount.js';
 
 export default function searchUserAccountByEmailUseCase(email) {
     const filter = accounts.filter((act) => act.email.toUpperCase() === email.toUpperCase());
