@@ -39,3 +39,34 @@ A aplicação exibe e trata os logs sem a responsabilidade de armazena-los.
 
 ### **XII. Processos de Admin** :x:
 Esse requisito não foi cumprido pois as alterações são armazenadas no git.
+
+______________________________________________________________________________
+
+## **Patterns de Microserviços**
+
+- ### **Serviços de domínio**
+Esse projeto utiliza o modelo REST.
+
+- ### **Serviços de negócio**
+Os serviços esta divididos em três APIs, são elas : Account, Finance e Product.
+
+- ### **API Gateway**
+Não foi utilizado no projeto.
+
+- ### **Agregador de processos**
+Não foi utilizado no projeto.
+
+- ### **Edge service**
+Não foi utilizado no projeto.
+
+- ### **Single database vs Bancos diferentes**
+Foram utilizados bancos diferentes.
+
+- ### **Eventos assíncronos‌**
+Foram utilizadas funções assíncronas quando necessário.
+
+- ### **Agregação de logs**
+Não foi utilizado no projeto.
+
+- ### **Agregação de métricas**
+Não foi utilizado no projeto.
