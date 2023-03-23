@@ -44,29 +44,29 @@ ______________________________________________________________________________
 
 ## **Patterns de Microserviços**
 
-- ### **Serviços de domínio**
+### **Serviços de domínio** :heavy_check_mark:
 Esse projeto utiliza o modelo REST.
 
-- ### **Serviços de negócio**
+### **Serviços de negócio** :heavy_check_mark:
 Os serviços esta divididos em três APIs, são elas : Account, Finance e Product.
 
-- ### **API Gateway**
+### **API Gateway** :x:
 Não foi utilizado no projeto.
 
-- ### **Agregador de processos**
+### **Agregador de processos** :x:
 Não foi utilizado no projeto.
 
-- ### **Edge service**
+### **Edge service** :x:
 Não foi utilizado no projeto.
 
-- ### **Single database vs Bancos diferentes**
+### **Single database vs Bancos diferentes** :heavy_check_mark:
 Foram utilizados bancos diferentes.
 
-- ### **Eventos assíncronos‌**
+### **Eventos assíncronos‌** :heavy_check_mark:
 Foram utilizadas funções assíncronas quando necessário.
 
-- ### **Agregação de logs**
+### **Agregação de logs** :x:
 Não foi utilizado no projeto.
 
-- ### **Agregação de métricas**
+### **Agregação de métricas** :x:
 Não foi utilizado no projeto.
