@@ -40,7 +40,7 @@ A aplicação exibe e trata os logs sem a responsabilidade de armazena-los.
 ### **XII. Processos de Admin** :x:
 Esse requisito não foi cumprido pois as alterações são armazenadas no git.
 
-______________________________________________________________________________
+_____________________________________________________________________________________
 
 ## **Patterns de Microserviços**
 
@@ -70,3 +70,25 @@ Não foi utilizado no projeto.
 
 ### **Agregação de métricas** :x:
 Não foi utilizado no projeto.
+
+______________________________________________________________________________________
+
+## **Aspectos de microserviços**
+
+### **padronização ou não das stacks do serviço** :x:
+Não ouve uma padronização literal pois utilizamos common.js e express.js, bancos de dados relacionais e não relacionais.
+
+### solução para service discovery :heavy_check_mark:
+A solução foi utilizar uma DNS interna por meio de contêineres do docker compose.
+
+### aspectos de segurança (rede, aplicação e segurança em repouso) :heavy_check_mark:
+A aplicação usa atenção com token JWT.
+
+### tecnologias a adotar para deploy e build :heavy_check_mark:
+Para fazer o biuld e deploy utilizamos o docker.
+
+### como lidar com tolerância a falhas em aplicações síncronas :x:
+Ao invés de chamar diretamente o microsserviço, pode adicionar um proxy para fazer as requisições para o microsserviço.(Não foi implementado no projeto)
+
+### em que pontos faz sentido usar comunicação assíncrona :heavy_check_mark:
+Quando não existe a necessidade de uma reposta imediata.
